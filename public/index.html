@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Targatek Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1f476a;
+    --navy-deep: #0f2135;
+    --teal: #0eb2af;
+    --black: #1a1a1a;
+    --white: #ffffff;
+    --gray-50: #fafafa;
+    --gray-100: #f3f3f3;
+    --gray-150: #ebebeb;
+    --gray-300: #c8c8c8;
+    --gray-400: #999;
+    --gray-500: #777;
+    --gray-600: #555;
+    --gray-700: #3a3a3a;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--gray-700);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.65;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gray-150);
+  }
+
+  .nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo { display: block; height: 28px; text-decoration: none; }
+  .nav-logo img { height: 100%; width: auto; display: block; }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gray-500);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--black); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 140px 40px 100px;
+    text-align: center;
+  }
+  .hero-inner { max-width: 600px; margin: 0 auto; }
+  .hero-logo {
+    display: block;
+    height: 48px;
+    margin: 0 auto 40px;
+  }
+  .hero-logo img { height: 100%; width: auto; display: block; margin: 0 auto; }
+
+  .hero-rule {
+    width: 28px;
+    height: 2px;
+    background: var(--teal);
+    margin: 0 auto 28px;
+    opacity: 0.6;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--gray-500);
+    line-height: 1.7;
+    max-width: 440px;
+    margin: 0 auto;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 40px; }
+  .section-inner { max-width: 960px; margin: 0 auto; }
+
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 2px solid var(--teal);
+  }
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--black);
+    line-height: 1.35;
+    margin-bottom: 16px;
+  }
+  .section-body {
+    font-size: 15px;
+    color: var(--gray-600);
+    max-width: 560px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  .section-body p + p { margin-top: 12px; }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-150);
+    border-bottom: 1px solid var(--gray-150);
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  /* ── SUBSIDIARY CARD ── */
+  .subsidiary-card {
+    margin-top: 40px;
+    background: var(--navy-deep);
+    border-radius: 8px;
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    border-top: 2px solid var(--teal);
+  }
+  .subsidiary-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    max-width: 420px;
+    font-weight: 300;
+  }
+  .subsidiary-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    transition: all 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .subsidiary-link:hover {
+    color: rgba(255,255,255,0.8);
+    border-color: rgba(255,255,255,0.25);
+  }
+  .subsidiary-link svg { width: 12px; height: 12px; transition: transform 0.15s; }
+  .subsidiary-link:hover svg { transform: translateX(2px); }
+
+  /* ── LEADERSHIP ── */
+  .board-subsection { margin-top: 40px; }
+  .board-subsection-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    border-left: 2px solid var(--gray-300);
+    border-bottom: none;
+  }
+
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .leader-card {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--gray-150);
+  }
+  .leader-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 2px;
+  }
+  .leader-role {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--gray-500);
+  }
+
+  .advisor-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .advisor-card {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-150);
+  }
+  .advisor-name {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gray-700);
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-150);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 24px;
+  }
+  .contact-item-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 6px;
+  }
+  .contact-item-value {
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .contact-item-value a {
+    color: var(--gray-700);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .contact-item-value a:hover { color: var(--black); }
+  .contact-item + .contact-item { margin-top: 20px; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 32px 40px;
+    border-top: 1px solid var(--gray-150);
+    position: relative;
+  }
+  footer::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--teal);
+    opacity: 0.3;
+  }
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-logo { display: block; height: 18px; opacity: 0.25; }
+  .footer-logo img { height: 100%; width: auto; display: block; }
+  .footer-copy {
+    font-size: 11px;
+    color: var(--gray-400);
+    font-weight: 300;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { padding: 120px 24px 72px; }
+    .hero-logo { height: 40px; }
+    section { padding: 56px 24px; }
+    .about-layout { grid-template-columns: 1fr; gap: 0; }
+    .about-visual { display: none; }
+    .subsidiary-card {
+      flex-direction: column;
+      padding: 32px 28px;
+      align-items: flex-start;
+    }
+    .contact-grid { grid-template-columns: 1fr; gap: 0; }
+    .leadership-grid { grid-template-columns: repeat(2, 1fr); }
+    .advisor-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+    .nav-logo { height: 22px; }
+    .footer-inner { flex-direction: column; gap: 8px; }
+  }
+
+  @media (max-width: 480px) {
+    .leadership-grid { grid-template-columns: 1fr; }
+    .advisor-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="targatek-lockup.svg" alt="Targatek Incorporated">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-logo">
+      <img src="targatek-lockup.svg" alt="Targatek Incorporated">
+    </div>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Enterprise software company building intelligent systems for strategic execution.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-layout">
+      <div>
+        <div class="section-label">About</div>
+        <h2 class="section-heading">Building the operating system for enterprise value creation.</h2>
+        <div class="section-body">
+          <p>Targatek Inc. is a privately held enterprise software company focused on the intersection of strategic planning and execution. We build technology that gives senior leaders the speed and clarity to convert strategic intent into measurable outcomes.</p>
+          <p>Our thesis is straightforward: the gap between setting strategy and executing it is the most expensive problem in enterprise management. We are building the platform to close it.</p>
+        </div>
+      </div>
+      <div class="about-visual">
+        <img src="building-framework.png" alt="" style="width:300px;height:auto;opacity:0.55">
+      </div>
+    </div>
+
+    <div class="subsidiary-card">
+      <div>
+        <div style="margin-bottom:14px">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 247 50.6" style="height:26px;width:auto;display:block">
+            <g>
+              <path d="M173.93,27.5v.5c0,3.23-.4,5.98-1.25,8.65-.87,2.49-2.25,4.84-4.01,6.78-2.59,2.9-5.59,4.94-8.91,6.04l-.16.03s-.1.04-.16.06c-.14.06-.28.12-.44.13-.59.2-1.1.3-1.72.4-1.67.34-3.28.51-4.78.51-3.37,0-6.41-.6-9.3-1.84-2.51-1.11-4.98-2.84-7.15-5.01-4.61-4.71-6.85-10.19-6.85-16.75s2.34-12.34,6.95-16.95c4.75-4.76,10.35-7.05,16.96-6.95,4.9.06,7.05.69,9.12,1.76l.43.22-1.72,3.57-.44-.19c-2.23-.97-4.65-1.46-7.2-1.46-5.5,0-10.23,1.94-14.05,5.75-3.75,3.76-5.65,8.55-5.65,14.25s2.19,10.77,6.34,14.53c1.61,1.42,3.35,2.61,5.18,3.52,2.38,1.14,5.04,1.75,7.68,1.75h1.31c3.58-.3,6.71-1.61,9.36-3.88,3.19-2.8,4.94-6.03,5.33-9.87l.15-1.65h-6.65l1.89-3.9h9.74Z" fill="#ffffff"/>
+              <polygon points="221.59 49 217.08 49 200.1 13.45 182.81 49.2 178.2 49.2 200.1 3.95 221.59 49" fill="#ffffff"/>
+              <polygon points="203.2 37.7 196.7 37.7 200 31 203.2 37.7" fill="#0eb2af"/>
+              <polygon points="86.29 49 81.78 49 64.8 13.45 47.51 49.2 42.9 49.2 64.8 3.95 86.29 49" fill="#ffffff"/>
+              <path d="M107.17,29.15c-.08.01-.14.03-.16.04l.09-.19.07.15Z" fill="#ffffff"/>
+              <path d="M107.1,29l-.09.19s.08-.03.16-.04l-.07-.15Z" fill="#ffffff"/>
+              <path d="M110.8,29.09c2.83-.61,5.18-2.05,7-4.28,1.8-2.34,2.6-4.04,2.6-8.01s-1.37-7.19-4.18-9.58c-.65-.55-1.3-.97-2.07-1.36-1.53-.86-3.63-1.41-6.57-1.75-1.34-.21-2.77-.21-4.28-.21h-19.8l1.89,3.9h19.51c3.78,0,6.56.75,8.49,2.29,1.45,1.18,3.01,2.76,3.01,6.71,0,5-2.73,8.15-7.92,9.12-1.08.26-2.27.38-3.98.38h-2.29l5.04,10.53,6.54,12.87h4.43l-10.3-20.19c.72-.12,1.83-.28,2.88-.42ZM107.01,29.19l.09-.19.07.15c-.08.01-.14.03-.16.04Z" fill="#ffffff"/>
+              <polygon points="46.9 4 45.01 7.9 23.2 7.9 23.2 49.7 18.8 49.7 18.8 7.9 0 7.9 1.89 4 46.9 4" fill="#ffffff"/>
+              <path d="M233,0l-7.7,16.6h2.5l1.7-3.8,1-2.2,2.4-5.3,2.3,5.3,1,2.2,1.6,3.8h2.6l-7.5-16.6h.1,0Z" fill="#0eb2af"/>
+              <rect x="244.6" y="1" width="2.4" height="15.6" fill="#0eb2af"/>
+              <polygon points="67.8 37.7 61.4 37.7 64.6 31 67.8 37.7" fill="#0eb2af"/>
+            </g>
+          </svg>
+        </div>
+        <p>Our flagship product - an AI-powered strategic execution platform designed for the C-suite.</p>
+      </div>
+      <a href="https://targa.ai" class="subsidiary-link" target="_blank" rel="noopener">
+        targa.ai
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5h8M9 5.5l3 3-3 3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="leadership" id="leadership">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:8px">
+      <div>
+        <div class="section-label">Leadership</div>
+        <h2 class="section-heading">Board & Advisors</h2>
+      </div>
+      <div style="text-align:right;padding-bottom:4px">
+        <svg viewBox="0 0 120 2" xmlns="http://www.w3.org/2000/svg" style="width:120px;height:2px;opacity:0.15">
+          <rect width="120" height="2" rx="1" fill="#0eb2af"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="board-subsection">
+      <div class="board-subsection-label">Board of Directors</div>
+      <div class="leadership-grid">
+        <div class="leader-card">
+          <div class="leader-name">Bill Adams</div>
+          <div class="leader-role">Founder & Chairman</div>
+        </div>
+        <div class="leader-card">
+          <div class="leader-name">Linda Adams</div>
+          <div class="leader-role">Director</div>
+        </div>
+        <div class="leader-card">
+          <div class="leader-name">Joseph Thompson</div>
+          <div class="leader-role">Chief Executive Officer</div>
+        </div>
+        <div class="leader-card">
+          <div class="leader-name">Mark Sternberger</div>
+          <div class="leader-role">Chief Technology & Product Officer</div>
+        </div>
+        <div class="leader-card">
+          <div class="leader-name">Jeff Brandeis</div>
+          <div class="leader-role">Director</div>
+        </div>
+        <div class="leader-card">
+          <div class="leader-name">Bill Schick</div>
+          <div class="leader-role">Director</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="board-subsection">
+      <div class="board-subsection-label">Board of Advisors</div>
+      <div class="advisor-grid">
+        <div class="advisor-card"><div class="advisor-name">Ajay Nagar</div></div>
+        <div class="advisor-card"><div class="advisor-name">Michael Lee</div></div>
+        <div class="advisor-card"><div class="advisor-name">Elias Nader</div></div>
+        <div class="advisor-card"><div class="advisor-name">Sean Clawges</div></div>
+        <div class="advisor-card"><div class="advisor-name">Lawrence Franzoni</div></div>
+        <div class="advisor-card"><div class="advisor-name">Joern Aaseng</div></div>
+        <div class="advisor-card"><div class="advisor-name">Carmen Dettloff</div></div>
+        <div class="advisor-card"><div class="advisor-name">Robert Bolton</div></div>
+        <div class="advisor-card"><div class="advisor-name">Bill McNitt</div></div>
+        <div class="advisor-card"><div class="advisor-name">Uday Danapal</div></div>
+        <div class="advisor-card"><div class="advisor-name">Gary Zarlengo</div></div>
+        <div class="advisor-card"><div class="advisor-name">Peter Yi</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="section-label">Contact</div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <div class="contact-item-label">General Inquiries</div>
+          <div class="contact-item-value"><a href="/cdn-cgi/l/email-protection#7e1d11100a1f1d0a3e0a1f0c191f0a1b15501d1113"><span class="__cf_email__" data-cfemail="accfc3c2d8cdcfd8ecd8cddecbcdd8c9c782cfc3c1">[email&#160;protected]</span></a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">Investor Relations</div>
+          <div class="contact-item-value"><a href="/cdn-cgi/l/email-protection#e58c97a5918497828491808ecb868a88"><span class="__cf_email__" data-cfemail="573e2517233625303623323c7934383a">[email&#160;protected]</span></a></div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-item">
+          <div class="contact-item-label">Headquarters</div>
+          <div class="contact-item-value">Targatek Inc.<br>Saint Augustine, Florida</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="targatek-lockup.svg" alt="Targatek">
+    </div>
+    <div class="footer-copy">&copy; 2026 Targatek Inc. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  });
+</script>
+</body>
+</html>
