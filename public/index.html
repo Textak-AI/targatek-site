@@ -222,12 +222,13 @@
   .leadership-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0 48px;
+    gap: 0;
   }
   .leader-card {
-    padding: 20px 0;
+    padding: 20px 16px 20px 0;
     border-bottom: 1px solid var(--gray-150);
   }
+  .leader-card:nth-child(3n) { padding-right: 0; }
   .leader-name {
     font-family: var(--font-display);
     font-size: 14px;
@@ -244,12 +245,13 @@
   .advisor-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0 40px;
+    gap: 0;
   }
   .advisor-card {
-    padding: 14px 0;
+    padding: 14px 12px 14px 0;
     border-bottom: 1px solid var(--gray-150);
   }
+  .advisor-card:nth-child(4n) { padding-right: 0; }
   .advisor-name {
     font-family: var(--font-display);
     font-size: 13px;
@@ -494,11 +496,11 @@
       <div>
         <div class="contact-item">
           <div class="contact-item-label">General Inquiries</div>
-          <div class="contact-item-value"><a href="mailto:contact@targatek.com">contact@targatek.com</a></div>
+          <div class="contact-item-value"><a href="/cdn-cgi/l/email-protection#fc9f9392889d9f88bc889d8e9b9d889997d29f9391"><span class="__cf_email__" data-cfemail="fa9995948e9b998eba8e9b889d9b8e9f91d4999597">[email&#160;protected]</span></a></div>
         </div>
         <div class="contact-item">
           <div class="contact-item-label">Investor Relations</div>
-          <div class="contact-item-value"><a href="mailto:ir@targatek.com">ir@targatek.com</a></div>
+          <div class="contact-item-value"><a href="/cdn-cgi/l/email-protection#066f7446726774616772636d2865696b"><span class="__cf_email__" data-cfemail="b0d9c2f0c4d1c2d7d1c4d5db9ed3dfdd">[email&#160;protected]</span></a></div>
         </div>
       </div>
       <div>
@@ -517,15 +519,4 @@
     <div class="footer-logo">
       <img src="targatek-lockup.svg" alt="Targatek">
     </div>
-    <div class="footer-copy">&copy; 2026 Targatek Inc. All rights reserved.</div>
-  </div>
-</footer>
-
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 10);
-  });
-</script>
-</body>
-</html>
+    <div class="footer-copy
