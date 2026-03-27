@@ -328,25 +328,37 @@
   @media (max-width: 768px) {
     .hero { padding: 120px 24px 72px; }
     .hero-logo { height: 28px; }
-    section { padding: 56px 24px; }
+    section { padding: 48px 24px; }
+    .section-heading { font-size: 20px; }
     .about-layout { grid-template-columns: 1fr; gap: 0; }
     .about-visual { display: none; }
     .subsidiary-card {
       flex-direction: column;
-      padding: 32px 28px;
+      padding: 28px 24px;
       align-items: flex-start;
     }
-    .contact-grid { grid-template-columns: 1fr; gap: 0; }
+    .subsidiary-card img { height: 24px !important; }
+    .contact-grid { grid-template-columns: 1fr; gap: 24px; }
     .leadership-grid { grid-template-columns: repeat(2, 1fr); }
     .advisor-grid { grid-template-columns: repeat(2, 1fr); }
-    .nav-links { display: none; }
+    .nav-inner { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 11px; }
     .nav-logo { height: 16px; }
     .footer-inner { flex-direction: column; gap: 8px; }
+    .footer-logo { height: 12px; }
   }
 
   @media (max-width: 480px) {
+    .hero { padding: 100px 20px 56px; }
+    .hero-logo { height: 24px; }
+    .hero-sub { font-size: 14px; }
+    section { padding: 40px 20px; }
+    .section-heading { font-size: 18px; }
     .leadership-grid { grid-template-columns: 1fr; }
-    .advisor-grid { grid-template-columns: repeat(2, 1fr); }
+    .advisor-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .subsidiary-card { padding: 24px 20px; }
   }
 </style>
 </head>
@@ -360,6 +372,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#product">Product</a></li>
       <li><a href="#leadership">Leadership</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -394,7 +407,7 @@
       </div>
     </div>
 
-    <div class="subsidiary-card">
+    <div class="subsidiary-card" id="product">
       <div>
         <div style="margin-bottom:14px">
           <img src="targa-wordmark-white.svg" alt="TARGA" style="height:30px;width:auto;display:block">
@@ -412,7 +425,7 @@
 <!-- LEADERSHIP -->
 <section class="leadership" id="leadership">
   <div class="section-inner">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:8px">
+    <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:8px">
       <div>
         <div class="section-label">Leadership</div>
         <h2 class="section-heading">Board & Advisors</h2>
@@ -493,6 +506,10 @@
         <div class="contact-item">
           <div class="contact-item-label">Headquarters</div>
           <div class="contact-item-value">Targatek Inc.<br>Saint Augustine, Florida</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-label">LinkedIn</div>
+          <div class="contact-item-value"><a href="https://www.linkedin.com/company/targatek" target="_blank" rel="noopener">linkedin.com/company/targatek</a></div>
         </div>
       </div>
     </div>
