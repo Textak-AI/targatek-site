@@ -26,7 +26,8 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  [id] { scroll-margin-top: 72px; }
 
   body {
     font-family: var(--font-body);
@@ -367,14 +368,14 @@
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
+    <a href="#" class="nav-logo" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">
       <img src="targatek-lockup.svg" alt="Targatek Incorporated">
     </a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#product">Product</a></li>
-      <li><a href="#leadership">Leadership</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" onclick="event.preventDefault();scrollToEl('about')">About</a></li>
+      <li><a href="#product" onclick="event.preventDefault();scrollToEl('product')">Product</a></li>
+      <li><a href="#leadership" onclick="event.preventDefault();scrollToEl('leadership')">Leadership</a></li>
+      <li><a href="#contact" onclick="event.preventDefault();scrollToEl('contact')">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -407,7 +408,7 @@
       </div>
     </div>
 
-    <div class="subsidiary-card" id="product" style="scroll-margin-top:140px">
+    <div class="subsidiary-card" id="product">
       <div>
         <div style="margin-bottom:14px">
           <img src="targa-wordmark-white.svg" alt="TARGA" style="height:30px;width:auto;display:block">
@@ -522,4 +523,18 @@
     <div class="footer-logo">
       <img src="targatek-lockup.svg" alt="Targatek">
     </div>
-    <div class="footer-copy
+    <div class="footer-copy">© 2026 Targatek Inc.</div>
+  </div>
+</footer>
+
+<script>
+function scrollToEl(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var navHeight = 72;
+  var top = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
