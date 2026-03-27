@@ -29,6 +29,11 @@
   html { scroll-behavior: smooth; scroll-padding-top: 72px; }
   [id] { scroll-margin-top: 72px; }
 
+  @media (max-width: 768px) {
+    html { scroll-padding-top: 80px; }
+    [id] { scroll-margin-top: 80px; }
+  }
+
   body {
     font-family: var(--font-body);
     color: var(--gray-700);
@@ -592,7 +597,7 @@
 function scrollToEl(id) {
   var el = document.getElementById(id);
   if (!el) return;
-  var navHeight = 72;
+  var navHeight = window.innerWidth < 768 ? 80 : 72;
   var top = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
   window.scrollTo({ top: top, behavior: 'smooth' });
 }
