@@ -325,6 +325,59 @@
     font-weight: 300;
   }
 
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--black);
+    margin-bottom: 5px;
+    transition: all 0.3s;
+  }
+  .hamburger span:last-child { margin-bottom: 0; }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translateY(7px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translateY(-7px); }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gray-150);
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.35s ease;
+  }
+  .mobile-menu.open {
+    max-height: 300px;
+    padding: 24px;
+  }
+  .mobile-menu a {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--gray-600);
+    text-decoration: none;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-150);
+    transition: color 0.15s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--black); }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     .hero { padding: 120px 24px 72px; }
@@ -343,8 +396,9 @@
     .leadership-grid { grid-template-columns: repeat(2, 1fr); }
     .advisor-grid { grid-template-columns: repeat(2, 1fr); }
     .nav-inner { padding: 0 20px; }
-    .nav-links { gap: 16px; }
-    .nav-links a { font-size: 11px; }
+    .nav-links { display: none; }
+    .hamburger { display: block; }
+    .mobile-menu { display: block; }
     .nav-logo { height: 16px; }
     .footer-inner { flex-direction: column; gap: 8px; }
     .footer-logo { height: 12px; }
@@ -358,7 +412,6 @@
     .section-heading { font-size: 18px; }
     .leadership-grid { grid-template-columns: 1fr; }
     .advisor-grid { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
     .subsidiary-card { padding: 24px 20px; }
   }
 </style>
@@ -376,6 +429,14 @@
       <li><a href="#product" onclick="event.preventDefault();scrollToEl('product')">Product</a></li>
       <li><a href="#leadership" onclick="event.preventDefault();scrollToEl('leadership')">Leadership</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="scrollToEl('about');closeMenu()">About</a>
+    <a href="#product" onclick="scrollToEl('product');closeMenu()">Product</a>
+    <a href="#leadership" onclick="scrollToEl('leadership');closeMenu()">Leadership</a>
   </div>
 </nav>
 
@@ -534,6 +595,14 @@ function scrollToEl(id) {
   var navHeight = 72;
   var top = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
   window.scrollTo({ top: top, behavior: 'smooth' });
+}
+function toggleMenu() {
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
 }
 </script>
 </body>
