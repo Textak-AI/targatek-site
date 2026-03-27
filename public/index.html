@@ -30,8 +30,8 @@
   [id] { scroll-margin-top: 72px; }
 
   @media (max-width: 768px) {
-    html { scroll-padding-top: 80px; }
-    [id] { scroll-margin-top: 80px; }
+    html { scroll-padding-top: 0; }
+    [id] { scroll-margin-top: 0; }
   }
 
   body {
@@ -597,7 +597,7 @@
 function scrollToEl(id) {
   var el = document.getElementById(id);
   if (!el) return;
-  var navHeight = window.innerWidth < 768 ? 80 : 72;
+  var navHeight = window.innerWidth < 768 ? 0 : 72;
   var top = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
   window.scrollTo({ top: top, behavior: 'smooth' });
 }
