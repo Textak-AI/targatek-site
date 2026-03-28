@@ -178,10 +178,22 @@
     justify-content: space-between;
     gap: 32px;
     border-top: 2px solid var(--teal);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
   }
+  .subsidiary-card:hover {
+    background: #142a42;
+    border-top-color: #10c9c6;
+  }
+  .subsidiary-card:hover .subsidiary-link {
+    color: rgba(255,255,255,0.9);
+    border-color: rgba(255,255,255,0.35);
+  }
+  .subsidiary-card:hover .subsidiary-link svg { transform: translateX(3px); }
   .subsidiary-card p {
     font-size: 14px;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.65);
     line-height: 1.7;
     max-width: 420px;
     font-weight: 300;
@@ -329,6 +341,23 @@
     color: var(--gray-400);
     font-weight: 300;
   }
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .footer-links a {
+    font-size: 11px;
+    color: var(--gray-400);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--gray-700); }
+  .footer-sep {
+    font-size: 11px;
+    color: var(--gray-300);
+  }
 
   /* ── HAMBURGER ── */
   .hamburger {
@@ -407,6 +436,7 @@
     .nav-logo { height: 16px; }
     .footer-inner { flex-direction: column; gap: 8px; }
     .footer-logo { height: 12px; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
   }
 
   @media (max-width: 480px) {
@@ -474,18 +504,18 @@
     </div>
 
     <div id="product" style="height:0;visibility:hidden;margin:0;padding:0"></div>
-    <div class="subsidiary-card">
+    <a href="https://www.targa.ai" target="_blank" rel="noopener" class="subsidiary-card">
       <div>
         <div style="margin-bottom:14px">
           <img src="targa-wordmark-white.svg" alt="TARGA" style="height:30px;width:auto;display:block">
         </div>
         <p>Our flagship product - an AI-powered strategic execution platform designed for the C-suite.</p>
       </div>
-      <a href="https://targa.ai" class="subsidiary-link" target="_blank" rel="noopener">
+      <span class="subsidiary-link">
         targa.ai
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5h8M9 5.5l3 3-3 3"/></svg>
-      </a>
-    </div>
+      </span>
+    </a>
   </div>
 </section>
 
@@ -572,7 +602,7 @@
       <div>
         <div class="contact-item">
           <div class="contact-item-label">Headquarters</div>
-          <div class="contact-item-value">Targatek Inc.<br>Saint Augustine, Florida</div>
+          <div class="contact-item-value">Targatek Inc.<br>Fort Lauderdale, Florida</div>
         </div>
         <div class="contact-item">
           <div class="contact-item-label">LinkedIn</div>
@@ -588,6 +618,11 @@
   <div class="footer-inner">
     <div class="footer-logo">
       <img src="targatek-lockup.svg" alt="Targatek">
+    </div>
+    <div class="footer-links">
+      <a href="mailto:contact@targatek.com">contact@targatek.com</a>
+      <span class="footer-sep">·</span>
+      <a href="mailto:investors@targatek.com">investors@targatek.com</a>
     </div>
     <div class="footer-copy">© 2026 Targatek Inc.</div>
   </div>
